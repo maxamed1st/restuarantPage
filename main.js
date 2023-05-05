@@ -110,13 +110,53 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/DOM.js":
+/*!********************!*\
+  !*** ./src/DOM.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"clearNode\": () => (/* binding */ clearNode),\n/* harmony export */   \"newElement\": () => (/* binding */ newElement)\n/* harmony export */ });\nfunction newElement(element, id, content=false, node=false) {\n    //create new element and append to node\n    let el = document.createElement(element);\n    el.setAttribute('id', id);\n    if (content) {\n        //if content is passed, set it as textContent\n        el.textContent = content;\n    }\n    if (node) {\n        //if node is passed, append element to node\n        node.appendChild(el);\n    }\n    return el;\n}\n\nfunction clearNode(node) {\n    //remove all children from node\n    while (node.firstChild) {\n        node.removeChild(node.firstChild);\n    }\n    return node;\n}\n\n\n//# sourceURL=webpack://restuarantpage/./src/DOM.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _skeleton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./skeleton */ \"./src/skeleton.js\");\n\n\nlet content = document.getElementById('content');\ncontent.appendChild((0,_skeleton__WEBPACK_IMPORTED_MODULE_1__[\"default\"])());\n\n//# sourceURL=webpack://restuarantpage/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _pages_home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/home */ \"./src/pages/home.js\");\n/* harmony import */ var _pages_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/menu */ \"./src/pages/menu.js\");\n/* harmony import */ var _pages_about__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/about */ \"./src/pages/about.js\");\n/* harmony import */ var _skeleton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./skeleton */ \"./src/skeleton.js\");\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DOM */ \"./src/DOM.js\");\n\n\n\n\n\n\nlet container = document.getElementById('container');\nfunction handleClick(e) {\n    (0,_DOM__WEBPACK_IMPORTED_MODULE_5__.clearNode)(container);\n    let target = e.target.id.toLowerCase();\n    switch (target) {\n        case 'home':\n            main(_pages_home__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n            break;\n        case 'menu':\n            main(_pages_menu__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n            break;\n        case 'about':\n            main(_pages_about__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\n            break;\n        default:\n            main(_pages_home__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n            break;\n    };\n}\nfunction main(content) {\n    let nav = (0,_skeleton__WEBPACK_IMPORTED_MODULE_4__.navbar)(handleClick);\n    content = content();\n    let foot = (0,_skeleton__WEBPACK_IMPORTED_MODULE_4__.footer)();\n    container.appendChild(nav);\n    container.appendChild(content);\n    container.appendChild(foot);\n}\nmain(_pages_home__WEBPACK_IMPORTED_MODULE_1__[\"default\"])\n\n//# sourceURL=webpack://restuarantpage/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/pages/about.js":
+/*!****************************!*\
+  !*** ./src/pages/about.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ about)\n/* harmony export */ });\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DOM */ \"./src/DOM.js\");\n\nfunction about() {\n    let content = (0,_DOM__WEBPACK_IMPORTED_MODULE_0__.newElement)(\"div\", \"content\");\n    let text = \"ABOUT\";\n    content.textContent = text;\n    return content;\n}\n\n\n//# sourceURL=webpack://restuarantpage/./src/pages/about.js?");
+
+/***/ }),
+
+/***/ "./src/pages/home.js":
+/*!***************************!*\
+  !*** ./src/pages/home.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ home)\n/* harmony export */ });\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DOM */ \"./src/DOM.js\");\n\nfunction home() {\n    let content = (0,_DOM__WEBPACK_IMPORTED_MODULE_0__.newElement)(\"div\", \"content\");\n    let text = \"lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, nisi. Voluptate, quidem quisquam\";\n    content.textContent = text;\n    return content;\n}\n\n\n//# sourceURL=webpack://restuarantpage/./src/pages/home.js?");
+
+/***/ }),
+
+/***/ "./src/pages/menu.js":
+/*!***************************!*\
+  !*** ./src/pages/menu.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ menu)\n/* harmony export */ });\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DOM */ \"./src/DOM.js\");\n\nfunction menu() {\n    let content = (0,_DOM__WEBPACK_IMPORTED_MODULE_0__.newElement)(\"div\", \"content\");\n    let text = \"MENU\";\n    content.textContent = text;\n    return content;\n}\n\n\n//# sourceURL=webpack://restuarantpage/./src/pages/menu.js?");
 
 /***/ }),
 
@@ -126,7 +166,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst newElement = function(type, text=null) {\n    //create new element of type and return the element\n    const element = document.createElement(type);\n    //if a text is passed add it to the element\n    if(text !== null) {\n        element.textContent = text;\n    };\n    return element;\n};\nconst navbar = function() {\n    //create navbar and a list of the tabs\n    let nav = newElement(\"nav\");\n    let ul = newElement(\"ul\");\n    const liText = [\"Home\", \"Menu\", \"Text\"];\n\n    //Loop through liText array to create the tabs\n    for(let i=0; i<3; i++) {\n        let li = newElement(\"li\", liText[i]);\n        li.classList.add(\"navItem\");\n        ul.appendChild(li);\n    };\n    \n    //Add id to the unordered list and append to the navigation bar\n    ul.setAttribute(\"id\", \"navList\");\n    nav.appendChild(ul);\n\n    return nav;\n\n};\nconst skeleton = function() {\n    //create a skeleton for a restaurant page that can be used on all pages\n    return navbar();\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (skeleton);\n\n//# sourceURL=webpack://restuarantpage/./src/skeleton.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"footer\": () => (/* binding */ footer),\n/* harmony export */   \"navbar\": () => (/* binding */ navbar)\n/* harmony export */ });\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DOM */ \"./src/DOM.js\");\n\nfunction navbar(handleClick) {\n    //create navbar and a list of the tabs\n    let nav = (0,_DOM__WEBPACK_IMPORTED_MODULE_0__.newElement)(\"nav\", \"nav\");\n    let ul = (0,_DOM__WEBPACK_IMPORTED_MODULE_0__.newElement)(\"ul\", \"navlist\");\n    const liText = [\"Home\", \"Menu\", \"About\"];\n\n    //Loop through liText array to create the tabs\n    for(let i=0; i<3; i++) {\n        let id = liText[i].toLowerCase();\n        let li = (0,_DOM__WEBPACK_IMPORTED_MODULE_0__.newElement)(\"li\", liText[i], id);\n        li.classList.add(\"navItem\");\n        li.addEventListener(\"click\", handleClick);\n        ul.appendChild(li);\n    };\n    \n    //Append the unordered list to the navigation bar\n    nav.appendChild(ul);\n\n    return nav;\n\n};\n\nfunction footer() {\n    let foot = (0,_DOM__WEBPACK_IMPORTED_MODULE_0__.newElement)(\"div\", \"Footer\", \"©2023 Restaurant\");\n    return foot;\n}\n\n\n//# sourceURL=webpack://restuarantpage/./src/skeleton.js?");
 
 /***/ })
 
